@@ -9,35 +9,31 @@ The problem involves optimizing a population of chromosomes, where each chromoso
 The fitness of each chromosome is calculated using the formula: `0.6 * a + 0.4 * b`, where `a` is the total sum of the bandwidth of the three genes in the chromosome, and `b` is the difference between the delays of the genes.
 
 
-## Implementation Details
+## Configuration
 
-The program uses a genetic algorithm approach with the following components:
+You can adjust the following parameters in the code to customize the genetic algorithm's behavior:
 
-- **Chromosome**: Represents an individual chromosome with three genes. It includes methods for calculating fitness, crossover, and mutation.
+- `TOURNAMENT_SIZE`: The number of chromosomes to compete in tournament selection.
+- `MUTATION_RATE`: The probability of mutation for each gene in a chromosome.
+- `NUM_GENERATIONS`: The total number of generations for the evolution process.
+- `ELITISM_COUNT`: The number of best chromosomes to carry over to the next generation.
+- `POPULATION_SIZE`: The size of the population in each generation.
 
-- **Population**: Represents a population of chromosomes. It includes methods for evaluating the population, performing tournament selection, and evolving to the next generation.
+## Output
 
-- **Main**: The main class that initializes and evolves the population over a specified number of generations. It also reads the gene values from the text file and displays the fittest chromosome and its corresponding gene in the last population.
+The program outputs the progress and results of the genetic algorithm, including:
 
-## Usage
+- The initial population with fitness values.
+- The evolution process, showing the fitness values of the best chromosomes in each generation.
+- The final population with fitness values.
+- The fittest chromosome and its fitness value after the evolution.
 
-1. Ensure you have Java installed on your machine.
+## Example Usage
 
-2. Place the `gene_values.txt` file in the same directory as the Java source files.
-
-3. Compile the Java source files using the following command:
-
-javac Main.java
-
-4. Run the program using the following command:
-
-java Main
-
-
-5. Follow the prompts to specify the program parameters such as population size, tournament size, mutation rate, and number of generations.
-
-6. The program will display the progress of each generation, including the fitness values of the chromosomes and their gene values. Finally, it will output the fittest chromosome in the last population and its corresponding gene.
-
+1. Ensure you have Java installed on your system.
+2. Compile the source code with `javac *.java`.
+3. Create a `genes.txt` file with gene data.
+4. Run the program with `java Main`.
 
 
 *** Feel free to modify and adapt the code to suit your needs.***
