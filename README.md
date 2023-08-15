@@ -19,6 +19,22 @@ You can adjust the following parameters in the code to customize the genetic alg
 - `ELITISM_COUNT`: The number of best chromosomes to carry over to the next generation.
 - `POPULATION_SIZE`: The size of the population in each generation.
 
+
+## genes.txt
+Here is a sample of the data in the genes.txt file. 
+First number represents the ID of a particular path
+Second number represents the bandwidth of that path.
+Third number represents the delay of that path.
+
+31,42,93
+102,82,100
+57,222,94
+280,128,94
+258,176,94
+189,85,73
+113,112,72
+89,298,100
+
 ## Output
 
 The program outputs the progress and results of the genetic algorithm, including:
