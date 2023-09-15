@@ -11,11 +11,12 @@ class PopulationUtils {
 
     public static Chromosome selectTournamentParent(Population population) {
         List<Chromosome> tournament = new ArrayList<>();
-        for (int i = 0; i < GeneticAlgorithm.TOURNAMENT_SIZE; i++) {
+        for (int i = 0; i < GeneticAlgorithm.getTournamentSize(); i++) { // Use the getter method
             tournament.add(population.getPopulation().get(new Random().nextInt(population.getPopulation().size())));
         }
         return PopulationUtils.getFittestChromosome(tournament);
     }
+
 
     public static Chromosome getFittestChromosome(List<Chromosome> chromosomes) {
         Chromosome fittest = chromosomes.get(0);
@@ -44,10 +45,11 @@ class PopulationUtils {
 
     public static void mutate(Chromosome chromosome) {
         for (int i = 0; i < chromosome.genes.length; i++) {
-            if (Math.random() < GeneticAlgorithm.MUTATION_RATE) {
-                chromosome.genes[i] = new Random().nextInt(251); // Or any other mutation logic you have
+            if (Math.random() < GeneticAlgorithm.getMutationRate()) { // Use the getter method
+                chromosome.genes[i] = new Random().nextInt(250) + 1;
             }
         }
     }
+
     
 }
