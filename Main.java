@@ -19,13 +19,11 @@ public class Main {
 	            Population finalPopulation = geneticAlgorithm.getPopulation();
 	            System.out.println("Generation: " + generation);
 	            for (Chromosome chromosome : finalPopulation.getPopulation()) {
-	                System.out.println("Chromosome: " + Arrays.toString(chromosome.genes) +
-	                                   " Fitness: " + chromosome.fitness);
+	                System.out.println("Chromosome: " + Arrays.toString(chromosome.genes);
 	            }
 
 
-	            System.out.println("Fittest Chromosome: " + Arrays.toString(finalPopulation.getFittestChromosome().genes)
-	                               + " Fitness: " + finalPopulation.getFittestChromosome().fitness);
+	            System.out.println("Fittest Chromosome: " + Arrays.toString(finalPopulation.getFittestChromosome().genes);
 	            System.out.println();
 	        }
 	    }
