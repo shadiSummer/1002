@@ -8,25 +8,27 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
+	private static final int NUM_GENERATIONS = 30;
 	
 	    public static void main(String[] args) {
 	        List<Chromosome> initialPopulation = readGenesFromFile();
 	        GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(initialPopulation);
-	        
-	        for (int generation = 0; generation < GeneticAlgorithm.NUM_GENERATIONS; generation++) { // Use GeneticAlgorithm.NUM_GENERATIONS
+
+	        for (int generation = 0; generation < NUM_GENERATIONS; generation++) {
 	            geneticAlgorithm.evolve();
 
-	            Population finalPopulation = geneticAlgorithm.getPopulation();
+	            // Print the current population
+	            Population currentPopulation = geneticAlgorithm.getPopulation();
 	            System.out.println("Generation: " + generation);
-	            for (Chromosome chromosome : finalPopulation.getPopulation()) {
-	                System.out.println("Chromosome: " + Arrays.toString(chromosome.genes);
+	            for (Chromosome chromosome : currentPopulation.getPopulation()) {
+	                System.out.println("Chromosome: " + Arrays.toString(chromosome.genes));
 	            }
 
-
-	            System.out.println("Fittest Chromosome: " + Arrays.toString(finalPopulation.getFittestChromosome().genes);
-	            System.out.println();
+	            // Print the fittest chromosome in the current generation
+	            System.out.println("Fittest Chromosome: " + Arrays.toString(currentPopulation.getFittestChromosome().genes));
 	        }
 	    }
+	    
 	    private static List<Chromosome> readGenesFromFile() {
 	        List<Chromosome> initialPopulation = new ArrayList<>();
 	        try (BufferedReader br = new BufferedReader(new FileReader("genes.txt"))) {
