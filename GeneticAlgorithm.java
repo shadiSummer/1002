@@ -1,16 +1,13 @@
 package GA;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class GeneticAlgorithm {
-    public static final int TOURNAMENT_SIZE = 3;
-    static final double MUTATION_RATE = 0.25;
-    public static final int NUM_GENERATIONS = 30;
+	private static final int TOURNAMENT_SIZE = 3;
+    private static final double MUTATION_RATE = 0.25;
+    private static final int NUM_GENERATIONS = 30;
     private static final int ELITISM_COUNT = 1;
-    private static final int POPULATION_SIZE = 100; // Specify the desired population size
-
     private Population population;
 
     public GeneticAlgorithm(List<Chromosome> initialPopulation) {
@@ -25,7 +22,7 @@ class GeneticAlgorithm {
                 newPopulation.add(population.getFittestChromosome());
             }
 
-            while (newPopulation.size() < population.getPopulation().size()) {
+            while (newPopulation.size() < PopulationUtils.POPULATION_SIZE) {
                 Chromosome parent1 = PopulationUtils.selectTournamentParent(population);
                 Chromosome parent2 = PopulationUtils.selectTournamentParent(population);
 
@@ -39,21 +36,15 @@ class GeneticAlgorithm {
         }
     }
 
-    private static Chromosome generateRandomChromosome() {
-        List<Integer> availablePathIDs = new ArrayList<>();
-        for (int i = 1; i <= 250; i++) {
-            availablePathIDs.add(i);
-        }
-
-        Collections.shuffle(availablePathIDs);
-        int[] genes = new int[3];
-        for (int i = 0; i < 3; i++) {
-            genes[i] = availablePathIDs.get(i);
-        }
-        return new Chromosome(genes[0], genes[1], genes[2]);
-    }
-    
     public Population getPopulation() {
         return population;
+    }
+    
+    public static double getMutationRate() {
+        return MUTATION_RATE;
+    }
+    
+    public static int getTournamentSize() {
+        return TOURNAMENT_SIZE;
     }
 }
