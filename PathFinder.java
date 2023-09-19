@@ -109,7 +109,7 @@ class Graph {
 
 public class PathFinder {
     public static void main(String[] args) {
-        String filename = "graph.txt"; // Provide the name of your input file here
+        String filename = "graph.txt"; 
 
         // Get the source and destination vertices from the user
         Scanner scanner = new Scanner(System.in);
